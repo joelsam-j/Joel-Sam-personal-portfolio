@@ -1,14 +1,16 @@
 /* Variables */
 :root {
-    --bg-color: #0b0f19;
-    --text-color: #e2e8f0;
-    --primary-color: #00f2fe;
-    --secondary-color: #4facfe;
-    --accent-gradient: linear-gradient(135deg, #00f2fe, #4facfe);
-    --card-bg: rgba(255, 255, 255, 0.05);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --hover-color: #00d4ff;
+    --bg-color: #000000;
+    --text-color: #cccccc;
+    --primary-color: #990000;
+    --secondary-color: #4d0000;
+    --accent-gradient: linear-gradient(135deg, #990000, #4d0000);
+    --card-bg: rgba(8, 8, 8, 0.85);
+    --glass-border: rgba(153, 0, 0, 0.3);
+    --hover-color: #cc0000;
     --transition: all 0.3s ease;
+    --font-heading: 'Orbitron', sans-serif;
+    --font-body: 'Roboto Mono', monospace;
 }
 
 /* Reset & Base Styles */
@@ -20,11 +22,20 @@
 
 html {
     scroll-behavior: smooth;
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-body);
+    font-size: 14px;
+}
+
+h1, h2, h3, h4, .logo, .nav-links li a {
+    font-family: var(--font-heading);
+}
+
+h1, h2.section-title {
+    letter-spacing: 2px;
 }
 
 body {
-    background-color: var(--bg-color);
+    background-color: transparent;
     color: var(--text-color);
     line-height: 1.6;
     overflow-x: hidden;
@@ -179,17 +190,19 @@ nav.scrolled {
 }
 
 .greeting {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: var(--primary-color);
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     text-transform: uppercase;
     margin-bottom: 10px;
+    font-weight: 500;
 }
 
 .hero h1 {
-    font-size: 4rem;
+    font-size: 2rem;
     line-height: 1.2;
     margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(153, 0, 0, 0.6);
 }
 
 .hero h2 {
@@ -378,6 +391,7 @@ nav.scrolled {
     border-radius: 20px;
     overflow: hidden;
     transition: var(--transition);
+    backdrop-filter: blur(12px);
 }
 
 .project-card:hover {
@@ -425,6 +439,7 @@ nav.scrolled {
     border-radius: 20px;
     text-align: center;
     transition: var(--transition);
+    backdrop-filter: blur(12px);
 }
 
 .service-card:hover {
@@ -679,3 +694,53 @@ footer p {
     border-color: var(--primary-color);
     box-shadow: 0 10px 30px rgba(0, 242, 254, 0.15);
 }
+
+/* 3D Tilt Enhancements */
+.skill-card, .project-card, .service-card, .about-content, .contact-content, .hero-image-container {
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+.skill-card i, .skill-card h3 {
+    transform: translateZ(40px);
+}
+
+.project-info {
+    transform: translateZ(30px);
+}
+
+.project-img {
+    transform: translateZ(40px);
+}
+
+.service-card i {
+    transform: translateZ(50px);
+}
+
+.service-card h3, .service-card p {
+    transform: translateZ(30px);
+}
+
+#profile-img {
+    transform: translateZ(40px);
+}
+
+.about-text, .about-stats, .contact-info, .contact-form {
+    transform: translateZ(30px);
+}
+
+/* Custom Cursor Follower */
+.cursor-follower {
+    position: fixed;
+    width: 15px;
+    height: 15px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    box-shadow: 0 0 15px var(--primary-color), 0 0 30px var(--primary-color);
+    transform: translate(-50%, -50%);
+    transition: top 0.15s ease-out, left 0.15s ease-out;
+}
+
+

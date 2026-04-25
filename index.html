@@ -6,11 +6,15 @@
     <title>Joel Sam Jose - Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- 3D Animation Background -->
+    <div id="vanta-bg" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -10;"></div>
+
     <nav id="navbar">
         <div class="logo">JSJ.</div>
         <ul class="nav-links">
@@ -45,7 +49,7 @@
         </div>
         <div class="hero-image-container">
             <div class="blob-bg"></div>
-            <img src="profile-placeholder.jpg" alt="Joel Sam Jose" id="profile-img">
+            <img src="hero-img-3.png" alt="Joel Sam Jose" id="profile-img">
         </div>
     </section>
 
@@ -224,6 +228,12 @@
 
     <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
     
+    <!-- Live Animation Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <script src="script.js"></script>
 </body>
 </html>

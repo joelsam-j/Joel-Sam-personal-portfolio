@@ -134,3 +134,73 @@ window.addEventListener('click', (e) => {
         successModal.style.display = 'none';
     }
 });
+
+// Initialize Live Animations
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Add AOS animation attributes dynamically
+    document.querySelectorAll('.skill-card, .project-card, .service-card, .about-content, .contact-content').forEach((el, index) => {
+        el.setAttribute('data-aos', 'fade-up');
+        el.setAttribute('data-aos-delay', (index % 3) * 100);
+    });
+
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 800,
+            once: false,
+            mirror: true
+        });
+    }
+
+    // 2. Initialize Vanta 3D Background Animation
+    if (typeof VANTA !== 'undefined') {
+        VANTA.NET({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x990000,
+            backgroundColor: 0x000000,
+            points: 15.00,
+            maxDistance: 25.00,
+            spacing: 20.00,
+            showDots: true
+        });
+    }
+});
+
+// Custom Trailing Cursor Animation
+const cursor = document.createElement('div');
+cursor.classList.add('cursor-follower');
+document.body.appendChild(cursor);
+
+document.addEventListener('mousemove', (e) => {
+    cursor.style.left = `${e.clientX}px`;
+    cursor.style.top = `${e.clientY}px`;
+});
+
+// Initialize 3D Tilt Effect for contents
+document.addEventListener('DOMContentLoaded', () => {
+    if (typeof VanillaTilt !== 'undefined') {
+        // High tilt for smaller cards
+        VanillaTilt.init(document.querySelectorAll(".skill-card, .project-card, .service-card"), {
+            max: 15,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.2,
+            scale: 1.05
+        });
+
+        // Subtle tilt for larger containers and the hero image
+        VanillaTilt.init(document.querySelectorAll(".about-content, .contact-content, .hero-image-container"), {
+            max: 5,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.1,
+            scale: 1.02
+        });
+    }
+});
