@@ -97,3 +97,40 @@ window.addEventListener('click', (e) => {
         modal.style.display = 'none';
     }
 });
+
+// Form Submission Logic
+let formSubmitted = false;
+const contactForm = document.getElementById('contactForm');
+const hiddenIframe = document.getElementById('hidden_iframe');
+const successModal = document.getElementById('formSuccessModal');
+const closeSuccessModal = document.querySelector('.form-close-modal');
+const closeSuccessBtn = document.querySelector('.form-close-btn');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', () => {
+        formSubmitted = true;
+    });
+}
+
+if (hiddenIframe) {
+    hiddenIframe.addEventListener('load', () => {
+        if (formSubmitted) {
+            successModal.style.display = 'block';
+            contactForm.reset();
+            formSubmitted = false;
+        }
+    });
+}
+
+function closeSuccessMsg() {
+    if(successModal) successModal.style.display = 'none';
+}
+
+if (closeSuccessModal) closeSuccessModal.addEventListener('click', closeSuccessMsg);
+if (closeSuccessBtn) closeSuccessBtn.addEventListener('click', closeSuccessMsg);
+
+window.addEventListener('click', (e) => {
+    if (e.target === successModal) {
+        successModal.style.display = 'none';
+    }
+});
