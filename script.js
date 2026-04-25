@@ -74,3 +74,26 @@ function typeWriter() {
 
 // Start typewriter effect after a short delay
 setTimeout(typeWriter, 1000);
+
+// Modal Logic
+const modal = document.getElementById('certModal');
+const certBtn = document.getElementById('viewCertsBtn');
+const closeBtn = document.querySelector('.close-modal');
+
+if (certBtn) {
+    certBtn.addEventListener('click', () => {
+        modal.style.display = 'block';
+    });
+}
+
+if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+}
+
+window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.style.display = 'none';
+    }
+});

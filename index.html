@@ -94,7 +94,10 @@
 
     <section id="projects" class="projects section">
         <div class="container">
-            <h2 class="section-title">My <span class="highlight">Projects</span></h2>
+            <div class="projects-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 50px; flex-wrap: wrap; gap: 20px;">
+                <h2 class="section-title" style="margin-bottom: 0;">My <span class="highlight">Projects</span></h2>
+                <button id="viewCertsBtn" class="btn secondary-btn">View Certificates</button>
+            </div>
             <div class="projects-grid">
                 <!-- Project 1 -->
                 <div class="project-card">
@@ -194,6 +197,18 @@
         </div>
     </footer>
 
+    <!-- Certificates Modal -->
+    <div id="certModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 class="section-title" style="margin-bottom: 30px;">Project <span class="highlight">Certificates</span></h2>
+            <div class="certificates-container">
+                <img src="cert1.jpg" alt="AI Workflows & Automation Certificate" class="cert-img">
+                <img src="cert2.jpg" alt="AI & RPA Workshop Certificate" class="cert-img">
+            </div>
+        </div>
+    </div>
+    
     <script src="script.js"></script>
 </body>
 </html>
